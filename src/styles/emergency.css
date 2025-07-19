@@ -1,0 +1,512 @@
+/* Emergency Header */
+.emergency-hero {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.emergency-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="rgba(255,255,255,0.1)"><path d="M0,100 Q250,50 500,100 T1000,100 L1000,0 L0,0 Z"/></svg>');
+    background-size: 100% 100px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.emergency-content {
+    position: relative;
+    z-index: 1;
+}
+
+.emergency-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+}
+
+.emergency-hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.emergency-hero p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.emergency-stats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 40px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Emergency Form */
+.emergency-form-section {
+    padding: 60px 0;
+    background: #f8fafc;
+}
+
+.emergency-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+.emergency-form-card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 3px solid #dc2626;
+}
+
+.emergency-form-card h2 {
+    color: #dc2626;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #dc2626;
+}
+
+.location-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    background: #eff6ff;
+    color: #2563eb;
+    border: 2px solid #2563eb;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.location-btn:hover {
+    background: #2563eb;
+    color: white;
+}
+
+.location-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Priority Options */
+.emergency-priority {
+    margin: 30px 0;
+    padding: 20px;
+    background: #fef2f2;
+    border-radius: 12px;
+    border: 2px solid #fecaca;
+}
+
+.emergency-priority h3 {
+    color: #dc2626;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.priority-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.priority-option {
+    display: block;
+    cursor: pointer;
+}
+
+.priority-option input[type="radio"] {
+    display: none;
+}
+
+.priority-label {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.priority-option input[type="radio"]:checked + .priority-label {
+    border-color: #dc2626;
+    background: #fef2f2;
+}
+
+.priority-label.high {
+    border-color: #ea580c;
+}
+
+.priority-label.critical {
+    border-color: #dc2626;
+}
+
+.priority-option input[type="radio"]:checked + .priority-label.high {
+    background: #fff7ed;
+    border-color: #ea580c;
+}
+
+.priority-option input[type="radio"]:checked + .priority-label.critical {
+    background: #fef2f2;
+    border-color: #dc2626;
+}
+
+.priority-label i {
+    font-size: 1.5rem;
+    color: #dc2626;
+}
+
+.priority-label small {
+    display: block;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+/* Emergency Submit Button */
+.emergency-submit-btn {
+    width: 100%;
+    padding: 18px;
+    background: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.emergency-submit-btn:hover {
+    background: #b91c1c;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
+}
+
+.emergency-submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Info Cards */
+.emergency-info {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.info-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.info-card h3 {
+    color: #1e293b;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.expectation-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.step {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.step i {
+    font-size: 1.5rem;
+    color: #dc2626;
+    margin-top: 5px;
+}
+
+.step h4 {
+    color: #1e293b;
+    margin-bottom: 5px;
+}
+
+.step p {
+    color: #64748b;
+    margin: 0;
+}
+
+.service-types {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.service-type {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    background: #f8fafc;
+    border-radius: 6px;
+}
+
+.service-type i {
+    color: #dc2626;
+    font-size: 1.2rem;
+}
+
+.emergency-contact {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    color: white;
+    text-align: center;
+}
+
+.emergency-contact h3 {
+    color: white;
+}
+
+.hotline-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.hotline-info i {
+    font-size: 2rem;
+}
+
+.hotline-info h4 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Emergency Confirmation Styles */
+.emergency-confirmation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    animation: fadeIn 0.3s ease;
+}
+
+.confirmation-content {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    animation: slideIn 0.3s ease;
+}
+
+.confirmation-header {
+    margin-bottom: 25px;
+}
+
+.confirmation-header i {
+    font-size: 4rem;
+    color: #16a34a;
+    margin-bottom: 15px;
+}
+
+.confirmation-header h2 {
+    color: #1e293b;
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.confirmation-details {
+    text-align: left;
+    margin: 25px 0;
+}
+
+.confirmation-details p {
+    margin: 12px 0;
+    padding: 12px;
+    background: #f8fafc;
+    border-radius: 6px;
+    border-left: 4px solid #dc2626;
+}
+
+.confirmation-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.confirmation-actions .btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.confirmation-actions .btn-primary {
+    background: #dc2626;
+    color: white;
+}
+
+.confirmation-actions .btn-secondary {
+    background: #6b7280;
+    color: white;
+}
+
+.confirmation-actions .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .emergency-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .emergency-stats {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .emergency-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .emergency-form-card {
+        padding: 25px;
+    }
+    
+    .priority-options {
+        gap: 10px;
+    }
+    
+    .step {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hotline-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .emergency-hero {
+        padding: 60px 0;
+    }
+    
+    .emergency-icon {
+        font-size: 3rem;
+    }
+    
+    .emergency-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .emergency-form-card {
+        padding: 20px;
+    }
+    
+    .confirmation-content {
+        padding: 25px;
+    }
+    
+    .confirmation-actions {
+        flex-direction: column;
+    }
+}

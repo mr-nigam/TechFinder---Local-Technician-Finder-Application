@@ -1,0 +1,496 @@
+/* Tracking Header */
+.tracking-header {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 40px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.tracking-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.tracking-header p {
+    color: #64748b;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+/* Tracking Content */
+.tracking-content {
+    padding: 40px 0;
+}
+
+.tracking-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+.tracking-map {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    height: 500px;
+}
+
+.map-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.map-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #64748b;
+    background: #f8fafc;
+}
+
+.map-placeholder i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #2563eb;
+}
+
+.map-simulation {
+    text-align: center;
+    padding: 20px;
+}
+
+.map-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.map-header h4 {
+    color: #1e293b;
+    margin: 0;
+}
+
+.live-indicator {
+    color: #dc2626;
+    font-weight: 600;
+    font-size: 0.8rem;
+    animation: pulse 2s infinite;
+}
+
+.map-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.route-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: #f8fafc;
+    border-radius: 8px;
+    position: relative;
+}
+
+.location-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    z-index: 2;
+}
+
+.location-marker i {
+    font-size: 2rem;
+    padding: 10px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.technician-marker i {
+    color: #2563eb;
+    animation: pulse 2s infinite;
+}
+
+.customer-marker i {
+    color: #16a34a;
+}
+
+.location-marker span {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.route-line {
+    position: absolute;
+    top: 50%;
+    left: 80px;
+    right: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #16a34a 60%, #e5e7eb 60%);
+    border-radius: 2px;
+    z-index: 1;
+}
+
+.map-stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    background: #eff6ff;
+    border-radius: 8px;
+}
+
+.map-stats .stat {
+    text-align: center;
+}
+
+.map-stats .stat-label {
+    display: block;
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-bottom: 5px;
+}
+
+.map-stats .stat-value {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+/* Tracking Info */
+.tracking-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.appointment-card,
+.technician-card,
+.status-card,
+.eta-card {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.appointment-card h3,
+.technician-card h3,
+.status-card h3,
+.eta-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #1e293b;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 10px;
+}
+
+.appointment-details,
+.technician-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #64748b;
+}
+
+.detail-item i {
+    color: #2563eb;
+    font-size: 1rem;
+    width: 20px;
+}
+
+/* Technician Info */
+.technician-info {
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.technician-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #e5e7eb;
+}
+
+.technician-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.technician-details h4 {
+    margin-bottom: 5px;
+    color: #1e293b;
+}
+
+.technician-details p {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #fbbf24;
+}
+
+.rating span {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.technician-contact {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.contact-btn {
+    flex: 1;
+    padding: 10px;
+    background: #f1f5f9;
+    color: #64748b;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-weight: 500;
+}
+
+.contact-btn:hover {
+    background: #e2e8f0;
+    color: #374151;
+}
+
+.contact-btn:first-child {
+    background: #2563eb;
+    color: white;
+}
+
+.contact-btn:first-child:hover {
+    background: #1d4ed8;
+}
+
+/* Status Timeline */
+.status-timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.status-timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e5e7eb;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -23px;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #e5e7eb;
+    border: 3px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item.completed .timeline-marker {
+    background: #16a34a;
+}
+
+.timeline-item.active .timeline-marker {
+    background: #2563eb;
+    animation: pulse 2s infinite;
+}
+
+.timeline-content h4 {
+    color: #1e293b;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.timeline-content p {
+    color: #64748b;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.timeline-content .time {
+    color: #6b7280;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* ETA Display */
+.eta-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 2px solid #e5e7eb;
+}
+
+.eta-time,
+.eta-countdown {
+    text-align: center;
+}
+
+.eta-time .time,
+.eta-countdown .countdown {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 5px;
+}
+
+.eta-time .label,
+.eta-countdown .label {
+    font-size: 0.9rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.eta-details {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.eta-details .detail {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.eta-details .detail i {
+    color: #2563eb;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .tracking-header h1 {
+        font-size: 2rem;
+    }
+    
+    .tracking-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .tracking-map {
+        height: 300px;
+    }
+    
+    .technician-info {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .technician-contact {
+        flex-direction: column;
+    }
+    
+    .eta-display {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .eta-time .time,
+    .eta-countdown .countdown {
+        font-size: 1.5rem;
+    }
+    
+    .eta-details {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tracking-content {
+        padding: 20px 0;
+    }
+    
+    .appointment-card,
+    .technician-card,
+    .status-card,
+    .eta-card {
+        padding: 20px;
+    }
+    
+    .status-timeline {
+        padding-left: 25px;
+    }
+    
+    .timeline-marker {
+        left: -20px;
+    }
+    
+    .map-placeholder i {
+        font-size: 2rem;
+    }
+}

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Technician - TechFinder</title>
+    <link rel="stylesheet" href="src/styles/global.css">
+    <link rel="stylesheet" href="src/styles/tracking.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-wrench"></i>
+                <span>TechFinder</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="emergency.html" class="nav-link emergency">Emergency</a></li>
+                <li><a href="login.html" class="nav-link">Login</a></li>
+            </ul>
+            <div class="nav-hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="tracking-header">
+            <div class="container">
+                <h1>Track Your Technician</h1>
+                <p>Real-time location and ETA updates for your service appointment</p>
+            </div>
+        </section>
+
+        <section class="tracking-content">
+            <div class="container">
+                <div class="tracking-grid">
+                    <div class="tracking-map">
+                        <div class="map-container" id="mapContainer">
+                            <div class="map-placeholder">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <p>Loading map...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tracking-info">
+                        <div class="appointment-card">
+                            <h3>Current Appointment</h3>
+                            <div class="appointment-details" id="appointmentDetails">
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Today, 2:00 PM - 3:00 PM</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-wrench"></i>
+                                    <span>Plumbing Repair</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>123 Main Street, City, ST 12345</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="technician-card">
+                            <h3>Your Technician</h3>
+                            <div class="technician-info" id="technicianInfo">
+                                <div class="technician-avatar">
+                                    <img src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop" alt="Rajesh Kumar">
+                                </div>
+                                <div class="technician-details">
+                                    <h4>Rajesh Kumar</h4>
+                                    <p>Licensed Plumber</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <span>4.9</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="technician-contact">
+                                <button class="contact-btn" onclick="callTechnician()">
+                                    <i class="fas fa-phone"></i>
+                                    Call
+                                </button>
+                                <button class="contact-btn" onclick="messageTechnician()">
+                                    <i class="fas fa-message"></i>
+                                    Message
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="status-card">
+                            <h3>Status Updates</h3>
+                            <div class="status-timeline" id="statusTimeline">
+                                <div class="timeline-item completed">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <h4>Appointment Confirmed</h4>
+                                        <p>Your appointment has been confirmed</p>
+                                        <span class="time">1:30 PM</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-item completed">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <h4>Technician Dispatched</h4>
+                                        <p>Rajesh is on his way to your location</p>
+                                        <span class="time">1:45 PM</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-item active">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <h4>En Route</h4>
+                                        <p>Technician is traveling to your location</p>
+                                        <span class="time">Now</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <h4>Arrived</h4>
+                                        <p>Technician has arrived at your location</p>
+                                        <span class="time">ETA: 2:00 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="eta-card">
+                            <h3>Estimated Arrival</h3>
+                            <div class="eta-display">
+                                <div class="eta-time" id="etaTime">
+                                    <span class="time">2:00 PM</span>
+                                    <span class="label">ETA</span>
+                                </div>
+                                <div class="eta-countdown" id="etaCountdown">
+                                    <span class="countdown">12 minutes</span>
+                                    <span class="label">away</span>
+                                </div>
+                            </div>
+                            <div class="eta-details">
+                                <div class="detail">
+                                    <i class="fas fa-route"></i>
+                                    <span>2.3 km away</span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-clock"></i>
+                                    <span>On schedule</span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                    <span>35 km/h</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>TechFinder</h4>
+                    <p>Connecting you with trusted local technicians for all your repair needs.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="emergency.html">Emergency</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> 1800-TECH-FIND</p>
+                    <p><i class="fas fa-envelope"></i> support@techfinder.in</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TechFinder. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="src/js/tracking.js"></script>
+</body>
+</html>

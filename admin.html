@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - TechFinder</title>
+    <link rel="stylesheet" href="src/styles/global.css">
+    <link rel="stylesheet" href="src/styles/admin.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-wrench"></i>
+                <span>TechFinder Admin</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="admin.html" class="nav-link active">Admin</a></li>
+                <li><a href="login.html" class="nav-link">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="admin-header">
+            <div class="container">
+                <h1>Admin Dashboard</h1>
+                <p>Manage technicians, bookings, and system settings</p>
+            </div>
+        </section>
+
+        <section class="admin-content">
+            <div class="container">
+                <div class="admin-grid">
+                    <div class="admin-sidebar">
+                        <div class="sidebar-menu">
+                            <button class="menu-item active" onclick="showSection('dashboard')">
+                                <i class="fas fa-tachometer-alt"></i>
+                                Dashboard
+                            </button>
+                            <button class="menu-item" onclick="showSection('technicians')">
+                                <i class="fas fa-users"></i>
+                                Technicians
+                            </button>
+                            <button class="menu-item" onclick="showSection('bookings')">
+                                <i class="fas fa-calendar-alt"></i>
+                                Bookings
+                            </button>
+                            <button class="menu-item" onclick="showSection('reviews')">
+                                <i class="fas fa-star"></i>
+                                Reviews
+                            </button>
+                            <button class="menu-item" onclick="showSection('settings')">
+                                <i class="fas fa-cog"></i>
+                                Settings
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="admin-main">
+                        <div class="admin-section active" id="dashboard">
+                            <h2>Dashboard Overview</h2>
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <i class="fas fa-users"></i>
+                                    <div class="stat-info">
+                                        <h3>245</h3>
+                                        <p>Active Technicians</p>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <div class="stat-info">
+                                        <h3>1,234</h3>
+                                        <p>Completed Bookings</p>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <i class="fas fa-clock"></i>
+                                    <div class="stat-info">
+                                        <h3>56</h3>
+                                        <p>Pending Approvals</p>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <i class="fas fa-star"></i>
+                                    <div class="stat-info">
+                                        <h3>4.8</h3>
+                                        <p>Average Rating</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="dashboard-charts">
+                                <div class="chart-card">
+                                    <h3>Monthly Bookings</h3>
+                                    <div class="chart-placeholder">
+                                        <i class="fas fa-chart-line"></i>
+                                        <p>Chart visualization would go here</p>
+                                    </div>
+                                </div>
+                                <div class="chart-card">
+                                    <h3>Service Categories</h3>
+                                    <div class="chart-placeholder">
+                                        <i class="fas fa-chart-pie"></i>
+                                        <p>Chart visualization would go here</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="admin-section" id="technicians">
+                            <div class="section-header">
+                                <h2>Technician Management</h2>
+                                <button class="add-btn" onclick="showAddTechnicianForm()">
+                                    <i class="fas fa-plus"></i>
+                                    Add Technician
+                                </button>
+                            </div>
+                            <div class="technicians-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Category</th>
+                                            <th>Rating</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="techniciansTableBody">
+                                        <!-- Technicians will be populated by JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="admin-section" id="bookings">
+                            <div class="section-header">
+                                <h2>Booking Management</h2>
+                                <div class="filter-controls">
+                                    <select id="bookingStatusFilter">
+                                        <option value="">All Status</option>
+                                        <option value="pending">Pending</option>
+                                        <option value="confirmed">Confirmed</option>
+                                        <option value="completed">Completed</option>
+                                        <option value="cancelled">Cancelled</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="bookings-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Booking ID</th>
+                                            <th>Customer</th>
+                                            <th>Technician</th>
+                                            <th>Service</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="bookingsTableBody">
+                                        <!-- Bookings will be populated by JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="admin-section" id="reviews">
+                            <div class="section-header">
+                                <h2>Reviews & Ratings</h2>
+                                <div class="filter-controls">
+                                    <select id="reviewRatingFilter">
+                                        <option value="">All Ratings</option>
+                                        <option value="5">5 Stars</option>
+                                        <option value="4">4 Stars</option>
+                                        <option value="3">3 Stars</option>
+                                        <option value="2">2 Stars</option>
+                                        <option value="1">1 Star</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="reviews-list" id="reviewsList">
+                                <!-- Reviews will be populated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <div class="admin-section" id="settings">
+                            <h2>System Settings</h2>
+                            <div class="settings-grid">
+                                <div class="setting-card">
+                                    <h3>Service Areas</h3>
+                                    <p>Manage service coverage areas</p>
+                                    <button class="setting-btn">Configure</button>
+                                </div>
+                                <div class="setting-card">
+                                    <h3>Pricing</h3>
+                                    <p>Set base rates and fees</p>
+                                    <button class="setting-btn">Manage</button>
+                                </div>
+                                <div class="setting-card">
+                                    <h3>Notifications</h3>
+                                    <p>Configure alert settings</p>
+                                    <button class="setting-btn">Settings</button>
+                                </div>
+                                <div class="setting-card">
+                                    <h3>Emergency Services</h3>
+                                    <p>Emergency response settings</p>
+                                    <button class="setting-btn">Configure</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Add Technician Modal -->
+    <div id="addTechnicianModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAddTechnicianForm()">&times;</span>
+            <h2>Add New Technician</h2>
+            <form id="addTechnicianForm">
+                <div class="form-group">
+                    <label for="techName">Full Name</label>
+                    <input type="text" id="techName" required>
+                </div>
+                <div class="form-group">
+                    <label for="techEmail">Email</label>
+                    <input type="email" id="techEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="techPhone">Phone</label>
+                    <input type="tel" id="techPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="techCategory">Category</label>
+                    <select id="techCategory" required>
+                        <option value="">Select Category</option>
+                        <option value="home">Home Repairs</option>
+                        <option value="computer">Computer Repairs</option>
+                        <option value="vehicle">Vehicle Repairs</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="techExperience">Years of Experience</label>
+                    <input type="number" id="techExperience" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="techCertifications">Certifications</label>
+                    <textarea id="techCertifications" rows="3"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Add Technician</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>TechFinder</h4>
+                    <p>Connecting you with trusted local technicians for all your repair needs.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="emergency.html">Emergency</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> 1800-TECH-FIND</p>
+                    <p><i class="fas fa-envelope"></i> support@techfinder.in</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TechFinder. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="src/js/admin.js"></script>
+</body>
+</html>

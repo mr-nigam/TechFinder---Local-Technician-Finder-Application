@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment - TechFinder</title>
+    <link rel="stylesheet" href="src/styles/global.css">
+    <link rel="stylesheet" href="src/styles/booking.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-wrench"></i>
+                <span>TechFinder</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="emergency.html" class="nav-link emergency">Emergency</a></li>
+                <li><a href="login.html" class="nav-link">Login</a></li>
+            </ul>
+            <div class="nav-hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="booking-header">
+            <div class="container">
+                <button class="back-btn" onclick="history.back()">
+                    <i class="fas fa-arrow-left"></i>
+                    Back
+                </button>
+                <h1>Book Your Appointment</h1>
+                <p>Schedule a service with your selected technician</p>
+            </div>
+        </section>
+
+        <section class="booking-content">
+            <div class="container">
+                <div class="booking-grid">
+                    <div class="booking-form-section">
+                        <div class="form-card">
+                            <h2>Appointment Details</h2>
+                            <form id="bookingForm">
+                                <div class="form-step active" id="step1">
+                                    <h3>Step 1: Service Information</h3>
+                                    <div class="form-group">
+                                        <label for="serviceCategory">Service Category</label>
+                                        <select id="serviceCategory" required>
+                                            <option value="">Select Category</option>
+                                            <option value="home">Home Repairs</option>
+                                            <option value="computer">Computer Repairs</option>
+                                            <option value="vehicle">Vehicle Repairs</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="specificService">Specific Service</label>
+                                        <select id="specificService" required>
+                                            <option value="">Select Service</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="priority">Priority Level</label>
+                                        <select id="priority" required>
+                                            <option value="normal">Normal</option>
+                                            <option value="urgent">Urgent (+$25)</option>
+                                            <option value="emergency">Emergency (+$50)</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description">Problem Description</label>
+                                        <textarea id="description" rows="4" placeholder="Describe your issue in detail..." required></textarea>
+                                    </div>
+                                    <button type="button" class="next-btn" onclick="nextStep(2)">Next</button>
+                                </div>
+
+                                <div class="form-step" id="step2">
+                                    <h3>Step 2: Date & Time</h3>
+                                    <div class="form-group">
+                                        <label for="appointmentDate">Preferred Date</label>
+                                        <input type="date" id="appointmentDate" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Available Time Slots</label>
+                                        <div class="time-slots" id="timeSlots">
+                                            <!-- Time slots will be populated by JavaScript -->
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="duration">Estimated Duration</label>
+                                        <select id="duration" required>
+                                            <option value="30">30 minutes</option>
+                                            <option value="60">1 hour</option>
+                                            <option value="90">1.5 hours</option>
+                                            <option value="120">2 hours</option>
+                                            <option value="180">3 hours</option>
+                                            <option value="240">4+ hours</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-nav">
+                                        <button type="button" class="prev-btn" onclick="prevStep(1)">Previous</button>
+                                        <button type="button" class="next-btn" onclick="nextStep(3)">Next</button>
+                                    </div>
+                                </div>
+
+                                <div class="form-step" id="step3">
+                                    <h3>Step 3: Contact & Location</h3>
+                                    <div class="form-group">
+                                        <label for="customerName">Full Name</label>
+                                        <input type="text" id="customerName" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="customerPhone">Phone Number</label>
+                                        <input type="tel" id="customerPhone" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="customerEmail">Email Address</label>
+                                        <input type="email" id="customerEmail" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="serviceAddress">Service Address</label>
+                                        <input type="text" id="serviceAddress" placeholder="Enter full address..." required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="specialInstructions">Special Instructions</label>
+                                        <textarea id="specialInstructions" rows="3" placeholder="Any special instructions, access codes, etc."></textarea>
+                                    </div>
+                                    <div class="form-nav">
+                                        <button type="button" class="prev-btn" onclick="prevStep(2)">Previous</button>
+                                        <button type="button" class="next-btn" onclick="nextStep(4)">Review</button>
+                                    </div>
+                                </div>
+
+                                <div class="form-step" id="step4">
+                                    <h3>Step 4: Review & Confirm</h3>
+                                    <div class="booking-summary" id="bookingSummary">
+                                        <!-- Summary will be populated by JavaScript -->
+                                    </div>
+                                    <div class="form-nav">
+                                        <button type="button" class="prev-btn" onclick="prevStep(3)">Previous</button>
+                                        <button type="submit" class="submit-btn">Confirm Booking</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="booking-sidebar">
+                        <div class="technician-card" id="technicianCard">
+                            <!-- Technician info will be populated by JavaScript -->
+                        </div>
+
+                        <div class="pricing-card">
+                            <h3>Pricing Information</h3>
+                            <div class="pricing-details" id="pricingDetails">
+                                <div class="price-item">
+                                    <span>Service Fee:</span>
+                                    <span id="serviceFee">$0</span>
+                                </div>
+                                <div class="price-item">
+                                    <span>Priority Fee:</span>
+                                    <span id="priorityFee">$0</span>
+                                </div>
+                                <div class="price-item">
+                                    <span>Travel Fee:</span>
+                                    <span id="travelFee">$0</span>
+                                </div>
+                                <div class="price-item total">
+                                    <span>Total:</span>
+                                    <span id="totalFee">$0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="booking-progress">
+                            <h3>Booking Progress</h3>
+                            <div class="progress-steps">
+                                <div class="progress-step active" id="progress1">
+                                    <span>1</span>
+                                    Service Info
+                                </div>
+                                <div class="progress-step" id="progress2">
+                                    <span>2</span>
+                                    Date & Time
+                                </div>
+                                <div class="progress-step" id="progress3">
+                                    <span>3</span>
+                                    Contact Info
+                                </div>
+                                <div class="progress-step" id="progress4">
+                                    <span>4</span>
+                                    Review
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>TechFinder</h4>
+                    <p>Connecting you with trusted local technicians for all your repair needs.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="emergency.html">Emergency</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> 1800-TECH-FIND</p>
+                    <p><i class="fas fa-envelope"></i> support@techfinder.in</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TechFinder. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="src/js/booking.js"></script>
+</body>
+</html>

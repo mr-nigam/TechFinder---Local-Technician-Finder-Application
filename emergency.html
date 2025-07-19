@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Services - TechFinder</title>
+    <link rel="stylesheet" href="src/styles/global.css">
+    <link rel="stylesheet" href="src/styles/emergency.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-wrench"></i>
+                <span>TechFinder</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="emergency.html" class="nav-link emergency active">Emergency</a></li>
+                <li><a href="login.html" class="nav-link">Login</a></li>
+            </ul>
+            <div class="nav-hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="emergency-hero">
+            <div class="container">
+                <div class="emergency-content">
+                    <i class="fas fa-exclamation-triangle emergency-icon"></i>
+                    <h1>Emergency Services</h1>
+                    <p>24/7 urgent repair services with guaranteed response times</p>
+                    <div class="emergency-stats">
+                        <div class="stat">
+                            <span class="stat-number">&lt; 15</span>
+                            <span class="stat-label">Min Response</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Availability</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">98%</span>
+                            <span class="stat-label">Success Rate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="emergency-form-section">
+            <div class="container">
+                <div class="emergency-grid">
+                    <div class="emergency-form-card">
+                        <h2>Request Emergency Service</h2>
+                        <form id="emergencyForm">
+                            <div class="form-group">
+                                <label for="emergencyType">Emergency Type</label>
+                                <select id="emergencyType" required>
+                                    <option value="">Select Emergency Type</option>
+                                    <option value="plumbing">Plumbing Emergency (Burst pipe, flooding)</option>
+                                    <option value="electrical">Electrical Emergency (Power outage, sparks)</option>
+                                    <option value="hvac">HVAC Emergency (No heat/cooling)</option>
+                                    <option value="security">Security Emergency (Locks, access)</option>
+                                    <option value="appliance">Appliance Emergency (Refrigerator, water heater)</option>
+                                    <option value="computer">Computer Emergency (Data recovery, critical system)</option>
+                                    <option value="vehicle">Vehicle Emergency (Roadside assistance)</option>
+                                    <option value="other">Other Emergency</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="emergencyDescription">Emergency Description</label>
+                                <textarea id="emergencyDescription" rows="4" placeholder="Please describe the emergency situation in detail..." required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="emergencyLocation">Location</label>
+                                <input type="text" id="emergencyLocation" placeholder="Enter exact address..." required>
+                                <button type="button" class="location-btn" onclick="getCurrentLocation()">
+                                    <i class="fas fa-location-arrow"></i>
+                                    Use Current Location
+                                </button>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactName">Contact Name</label>
+                                <input type="text" id="contactName" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactPhone">Phone Number</label>
+                                <input type="tel" id="contactPhone" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="accessInstructions">Access Instructions</label>
+                                <textarea id="accessInstructions" rows="3" placeholder="How can the technician access the property? Gate codes, key location, etc."></textarea>
+                            </div>
+
+                            <div class="emergency-priority">
+                                <h3>Priority Level</h3>
+                                <div class="priority-options">
+                                    <label class="priority-option">
+                                        <input type="radio" name="priority" value="high" required>
+                                        <span class="priority-label high">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                            High Priority
+                                            <small>Immediate safety concern</small>
+                                        </span>
+                                    </label>
+                                    <label class="priority-option">
+                                        <input type="radio" name="priority" value="critical" required>
+                                        <span class="priority-label critical">
+                                            <i class="fas fa-exclamation-circle"></i>
+                                            Critical
+                                            <small>Life-threatening or severe property damage</small>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="emergency-submit-btn">
+                                <i class="fas fa-phone"></i>
+                                Request Emergency Service
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="emergency-info">
+                        <div class="info-card">
+                            <h3>What to Expect</h3>
+                            <div class="expectation-steps">
+                                <div class="step">
+                                    <i class="fas fa-phone"></i>
+                                    <div>
+                                        <h4>Immediate Response</h4>
+                                        <p>You'll receive a call within 2 minutes to confirm details</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <i class="fas fa-search"></i>
+                                    <div>
+                                        <h4>Technician Dispatch</h4>
+                                        <p>Nearest available technician is dispatched immediately</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div>
+                                        <h4>Real-time Tracking</h4>
+                                        <p>Track your technician's location and ETA</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <i class="fas fa-tools"></i>
+                                    <div>
+                                        <h4>Problem Resolution</h4>
+                                        <p>Expert technician arrives and resolves the emergency</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <h3>Emergency Services</h3>
+                            <div class="service-types">
+                                <div class="service-type">
+                                    <i class="fas fa-wrench"></i>
+                                    <span>Plumbing Emergencies</span>
+                                </div>
+                                <div class="service-type">
+                                    <i class="fas fa-bolt"></i>
+                                    <span>Electrical Emergencies</span>
+                                </div>
+                                <div class="service-type">
+                                    <i class="fas fa-thermometer-half"></i>
+                                    <span>HVAC Emergencies</span>
+                                </div>
+                                <div class="service-type">
+                                    <i class="fas fa-laptop"></i>
+                                    <span>Computer Emergencies</span>
+                                </div>
+                                <div class="service-type">
+                                    <i class="fas fa-car"></i>
+                                    <span>Vehicle Emergencies</span>
+                                </div>
+                                <div class="service-type">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Security Emergencies</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-card emergency-contact">
+                            <h3>Emergency Hotline</h3>
+                            <div class="hotline-info">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <h4>1800-EMERGENCY</h4>
+                                    <p>Available 24/7 for urgent situations</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>TechFinder</h4>
+                    <p>Connecting you with trusted local technicians for all your repair needs.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="emergency.html">Emergency</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> 1800-TECH-FIND</p>
+                    <p><i class="fas fa-envelope"></i> support@techfinder.in</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TechFinder. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="src/js/emergency.js"></script>
+</body>
+</html>

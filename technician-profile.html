@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technician Profile - TechFinder</title>
+    <link rel="stylesheet" href="src/styles/global.css">
+    <link rel="stylesheet" href="src/styles/technician-profile.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-wrench"></i>
+                <span>TechFinder</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="emergency.html" class="nav-link emergency">Emergency</a></li>
+                <li><a href="login.html" class="nav-link">Login</a></li>
+            </ul>
+            <div class="nav-hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="profile-header">
+            <div class="container">
+                <button class="back-btn" onclick="history.back()">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Services
+                </button>
+                <div class="profile-info" id="profileInfo">
+                    <!-- Profile info will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section class="profile-content">
+            <div class="container">
+                <div class="profile-grid">
+                    <div class="profile-main">
+                        <div class="profile-section">
+                            <h3>About</h3>
+                            <div id="technicianAbout"></div>
+                        </div>
+
+                        <div class="profile-section">
+                            <h3>Services & Pricing</h3>
+                            <div id="technicianServices"></div>
+                        </div>
+
+                        <div class="profile-section">
+                            <h3>Reviews</h3>
+                            <div id="technicianReviews"></div>
+                        </div>
+
+                        <div class="profile-section">
+                            <h3>Photos</h3>
+                            <div id="technicianPhotos"></div>
+                        </div>
+                    </div>
+
+                    <div class="profile-sidebar">
+                        <div class="booking-card">
+                            <h3>Book This Technician</h3>
+                            <div class="availability-info">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span id="availabilityStatus">Available Today</span>
+                            </div>
+                            <button class="book-btn" onclick="openBookingModal()">
+                                <i class="fas fa-calendar-plus"></i>
+                                Book Now
+                            </button>
+                            <div class="contact-options">
+                                <button class="contact-btn" onclick="initiateChat()">
+                                    <i class="fas fa-comment"></i>
+                                    Chat
+                                </button>
+                                <button class="contact-btn" onclick="initiateCall()">
+                                    <i class="fas fa-phone"></i>
+                                    Call
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="location-card">
+                            <h3>Service Area</h3>
+                            <div id="serviceArea"></div>
+                        </div>
+
+                        <div class="emergency-card">
+                            <h3>Emergency Service</h3>
+                            <p>Available 24/7 for urgent repairs</p>
+                            <button class="emergency-btn" onclick="bookEmergency()">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                Emergency Booking
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookingModal()">&times;</span>
+            <h2>Book Appointment</h2>
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="serviceType">Service Type</label>
+                    <select id="serviceType" required>
+                        <option value="">Select Service</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentDate">Date</label>
+                    <input type="date" id="appointmentDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentTime">Time</label>
+                    <select id="appointmentTime" required>
+                        <option value="">Select Time</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" rows="4" placeholder="Describe your issue..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="address">Service Address</label>
+                    <input type="text" id="address" placeholder="Enter service address..." required>
+                </div>
+                <button type="submit" class="submit-btn">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>TechFinder</h4>
+                    <p>Connecting you with trusted local technicians for all your repair needs.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="emergency.html">Emergency</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> 1800-TECH-FIND</p>
+                    <p><i class="fas fa-envelope"></i> support@techfinder.in</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TechFinder. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="src/js/technician-profile.js"></script>
+</body>
+</html>

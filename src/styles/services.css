@@ -1,0 +1,361 @@
+/* Services Header */
+.services-header {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 60px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.services-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.search-filters {
+    display: flex;
+    gap: 15px;
+    max-width: 800px;
+    margin: 30px auto 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-group {
+    display: flex;
+    gap: 8px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.filter-group input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: border-color 0.3s ease;
+}
+
+.filter-group input:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+.filter-btn {
+    padding: 12px 15px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.filter-btn:hover {
+    background: #1d4ed8;
+}
+
+.search-filters select {
+    padding: 12px 15px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    background: white;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.search-filters select:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+/* Services Content */
+.services-content {
+    padding: 40px 0;
+    min-height: 60vh;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: white;
+    border-radius: 16px;
+    padding: 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    border-color: #2563eb;
+}
+
+.service-header {
+    position: relative;
+    padding: 20px;
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    color: white;
+}
+
+.service-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.service-badge.available {
+    background: #16a34a;
+}
+
+.service-badge.busy {
+    background: #ea580c;
+}
+
+.technician-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.technician-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.technician-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.technician-details h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.technician-details p {
+    opacity: 0.9;
+    font-size: 0.9rem;
+}
+
+.service-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.service-rating .stars {
+    color: #fbbf24;
+    font-size: 0.9rem;
+}
+
+.service-rating .rating-text {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.service-body {
+    padding: 20px;
+}
+
+.service-category {
+    display: inline-block;
+    background: #eff6ff;
+    color: #2563eb;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.service-description {
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.service-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.feature-tag {
+    background: #f1f5f9;
+    color: #475569;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+}
+
+.service-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #f8fafc;
+    border-top: 1px solid #e5e7eb;
+}
+
+.service-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.service-price .price-label {
+    font-size: 0.8rem;
+    color: #64748b;
+    font-weight: 400;
+}
+
+.service-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.service-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.service-btn.primary {
+    background: #2563eb;
+    color: white;
+}
+
+.service-btn.primary:hover {
+    background: #1d4ed8;
+}
+
+.service-btn.secondary {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+.service-btn.secondary:hover {
+    background: #d1d5db;
+}
+
+.service-location {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #64748b;
+    font-size: 0.85rem;
+    margin-top: 10px;
+}
+
+.service-location i {
+    font-size: 0.8rem;
+}
+
+.distance {
+    font-weight: 600;
+    color: #16a34a;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #64748b;
+}
+
+.empty-state i {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: #cbd5e1;
+}
+
+.empty-state h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #374151;
+}
+
+.empty-state p {
+    font-size: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .services-header h1 {
+        font-size: 2rem;
+    }
+    
+    .search-filters {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .filter-group {
+        min-width: unset;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-footer {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+    
+    .service-actions {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-header {
+        padding: 40px 0;
+    }
+    
+    .service-card {
+        margin: 0 -10px;
+    }
+    
+    .technician-info {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .service-actions {
+        flex-direction: column;
+    }
+}
